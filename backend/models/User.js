@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+<<<<<<< HEAD
 const bcrypt   = require('bcryptjs');
 
 const UserSchema = new mongoose.Schema({
@@ -22,10 +23,28 @@ UserSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
 
+=======
+
+const UserSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  role: { type: String, enum: ['student', 'admin'], default: 'student' },
+  studentId: { type: String },
+  faculty: { type: String },
+  createdAt: { type: Date, default: Date.now },
+});
+
+// Hide password when converting to JSON
+>>>>>>> origin/main
 UserSchema.methods.toJSON = function () {
   const obj = this.toObject();
   delete obj.password;
   return obj;
 };
 
+<<<<<<< HEAD
 module.exports = mongoose.model('User', UserSchema);
+=======
+module.exports = mongoose.model('User', UserSchema);
+>>>>>>> origin/main

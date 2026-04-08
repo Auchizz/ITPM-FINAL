@@ -1,8 +1,14 @@
+<<<<<<< HEAD
+=======
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap');
+
+>>>>>>> origin/main
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
+<<<<<<< HEAD
   --primary:       #1E3A8A;
   --primary-light: #3B5FC3;
   --primary-pale:  #EFF3FF;
@@ -180,3 +186,150 @@ body {
 /* Scrollbar */
 ::-webkit-scrollbar       { width: 5px; }
 ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+=======
+  font-family: 'DM Sans', 'Avenir Next', 'Montserrat', 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #1d2938;
+  background:
+    radial-gradient(circle at top, rgba(216, 140, 79, 0.16), transparent 28%),
+    linear-gradient(180deg, #f8f2e8 0%, #f3ede2 48%, #ece4d5 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(216, 140, 79, 0.16), transparent 28%),
+    linear-gradient(180deg, #f8f2e8 0%, #f3ede2 48%, #ece4d5 100%);
+  @apply antialiased;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.card {
+  @apply rounded-[30px] border border-[#e7dac3] bg-[#fffaf2] p-6 shadow-[0_24px_70px_-32px_rgba(23,50,77,0.28)] backdrop-blur-xl md:p-7;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-2xl border border-transparent bg-gradient-to-r from-primary via-[#254e6f] to-sportgreen px-5 py-3 text-sm font-semibold text-[#fffaf2] shadow-lg shadow-[rgba(23,50,77,0.24)] transition duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[rgba(23,50,77,0.28)] disabled:cursor-not-allowed disabled:opacity-70;
+}
+
+.glass {
+  @apply rounded-[28px] border border-[#e7dac3] bg-[#fffaf2] p-4 shadow-lg backdrop-blur-xl;
+}
+
+.input {
+  @apply w-full rounded-2xl border border-[#d8c6ab] bg-[#fffdf8] px-4 py-3 text-[#1d2938] outline-none transition duration-200 placeholder:text-[#9a8f80] focus:border-accent focus:ring-4 focus:ring-[#f4dcc2];
+}
+
+.table {
+  @apply w-full border-collapse;
+}
+
+.table th {
+  @apply p-4 text-left text-xs font-semibold uppercase tracking-[0.24em] text-[#8c7d69];
+}
+
+.table td {
+  @apply border-t border-[#eee3d3] p-4 text-sm text-[#5f6670];
+}
+
+.muted {
+  @apply text-[#7d7467];
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full bg-[#efe3d3] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary;
+}
+
+.sliit-shell {
+  @apply min-h-screen bg-sliit-bg text-white;
+  background-image:
+    radial-gradient(circle at top left, rgba(245, 166, 35, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.16), transparent 26%),
+    linear-gradient(180deg, rgba(10, 15, 30, 0.98), rgba(11, 20, 38, 1));
+}
+
+.module-shell {
+  @apply overflow-hidden rounded-[2rem] border border-sliit-line/80 text-white;
+  background-image:
+    radial-gradient(circle at top left, rgba(245, 166, 35, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.16), transparent 26%),
+    linear-gradient(180deg, rgba(10, 15, 30, 0.98), rgba(11, 20, 38, 1));
+}
+
+.sliit-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.sliit-card {
+  @apply rounded-3xl border border-sliit-line/80 bg-sliit-panel/90 shadow-sliit-card backdrop-blur;
+}
+
+.sliit-card-soft {
+  @apply rounded-3xl border border-white/10 bg-white/5 backdrop-blur;
+}
+
+.sliit-pill {
+  @apply inline-flex items-center gap-2 rounded-full border border-sliit-gold/30 bg-sliit-gold/10 px-4 py-2 text-sm font-medium text-sliit-gold;
+}
+
+.sliit-button-primary {
+  @apply inline-flex items-center justify-center rounded-full bg-sliit-gold px-5 py-3 font-semibold text-sliit-bg transition duration-200 hover:-translate-y-0.5 hover:bg-[#ffc04d];
+}
+
+.sliit-button-secondary {
+  @apply inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-5 py-3 font-semibold text-white transition duration-200 hover:-translate-y-0.5 hover:border-sliit-gold/50 hover:text-sliit-gold;
+}
+
+.sliit-input {
+  @apply w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-sliit-muted transition focus:border-sliit-gold/80 focus:bg-white/10;
+}
+
+.sliit-section {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.sliit-heading {
+  @apply font-heading uppercase tracking-[0.08em];
+}
+
+.sliit-live-dot {
+  @apply inline-block h-2.5 w-2.5 rounded-full bg-rose-500 animate-pulse-dot;
+}
+>>>>>>> origin/main

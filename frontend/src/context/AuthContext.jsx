@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { createContext, useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import authApi from '../api/authApi'
@@ -78,21 +79,77 @@ useEffect(() => {
     setToken(null)
     setUser(null)
     navigate('/login')
+=======
+import React, { createContext, useContext, useEffect, useState } from 'react'
+import authApi from '../api/authApi'
+import axiosInstance from '../api/axios'
+import { useNavigate } from 'react-router-dom'
+
+const AuthContext = createContext()
+
+export function AuthProvider({ children }) {
+  const navigate = useNavigate()
+  const [token, setToken] = useState(() => localStorage.getItem('token'))
+  const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    if (token) {
+      axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`
+      fetchProfile()
+    } else {
+      setLoading(false)
+    }
+  }, [token])
+
+  async function login(credentials) {
+    const res = await authApi.login(credentials)
+    // backend responds with { success, message, data: { user, token } }
+    const token = res?.data?.token
+    const user = res?.data?.user
+    if (token) {
+      localStorage.setItem('token', token)
+      axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`
+      setToken(token)
+      setUser(user)
+      return user
+    }
+    return null
+  }
+
+  function logout(redirectTo = '/login') {
+    localStorage.removeItem('token')
+    setToken(null)
+    setUser(null)
+    delete axiosInstance.defaults.headers.common['Authorization']
+    navigate(redirectTo)
+>>>>>>> origin/main
   }
 
   async function fetchProfile() {
     try {
+<<<<<<< HEAD
       const res = await authApi.profile()
       const u = res?.data || res
       setUser(u)
       localStorage.setItem('uni_user', JSON.stringify(u))
     } catch {
       // keep existing user from localStorage
+=======
+      const profile = await authApi.profile()
+      // profile is { success, message, data: user }
+      setUser(profile?.data)
+      return profile?.data
+    } catch (err) {
+      console.error('fetchProfile', err)
+      logout()
+>>>>>>> origin/main
     } finally {
       setLoading(false)
     }
   }
 
+<<<<<<< HEAD
   function updateUser(updates) {
     const updated = { ...user, ...updates }
     setUser(updated)
@@ -101,9 +158,19 @@ useEffect(() => {
 
   return (
     <AuthContext.Provider value={{ user, token, login, logout, updateUser, loading }}>
+=======
+  return (
+    <AuthContext.Provider value={{ user, token, login, logout, fetchProfile, setUser, loading }}>
+>>>>>>> origin/main
       {children}
     </AuthContext.Provider>
   )
 }
 
+<<<<<<< HEAD
 export function useAuth() { return useContext(AuthContext) }
+=======
+export function useAuth() {
+  return useContext(AuthContext)
+}
+>>>>>>> origin/main
