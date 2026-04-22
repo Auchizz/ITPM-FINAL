@@ -11,6 +11,9 @@ import RegistrationsPage from './pages/RegistrationsPage'
 import MyEventsPage from './pages/MyEventsPage'
 import NotFoundPage from './pages/NotFoundPage'
 import Dashboard from './pages/Dashboard'
+import ProfilePage from './pages/ProfilePage'
+import SettingsPage from './pages/SettingsPage'
+import UserManagementPage from './pages/UserManagementPage'
 import ProtectedRoute from './components/ProtectedRoute'
 import AdminRoute from './components/AdminRoute'
 
@@ -51,6 +54,9 @@ export default function App() {
         path="/registrations"
         element={<AdminRoute><RegistrationsPage /></AdminRoute>}
       />
+      <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
+      <Route path="/settings" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
+      <Route path="/users" element={<AdminRoute><UserManagementPage /></AdminRoute>} />
 
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
