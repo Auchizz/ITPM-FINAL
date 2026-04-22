@@ -14,6 +14,13 @@ import Dashboard from './pages/Dashboard'
 import ProfilePage from './pages/ProfilePage'
 import SettingsPage from './pages/SettingsPage'
 import UserManagementPage from './pages/UserManagementPage'
+import NewsPage from './pages/NewsPage'
+import GalleryPage from './pages/GalleryPage'
+import RealTimePage from './pages/RealTimePage'
+import FeedbackPage from './pages/FeedbackPage'
+import NotificationsPage from './pages/NotificationsPage'
+import ParticipationPage from './pages/ParticipationPage'
+import ActivityAdminPage from './pages/ActivityAdminPage'
 import ProtectedRoute from './components/ProtectedRoute'
 import AdminRoute from './components/AdminRoute'
 
@@ -57,6 +64,13 @@ export default function App() {
       <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
       <Route path="/settings" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
       <Route path="/users" element={<AdminRoute><UserManagementPage /></AdminRoute>} />
+      <Route path="/news" element={<ProtectedRoute><NewsPage /></ProtectedRoute>} />
+      <Route path="/gallery" element={<ProtectedRoute><GalleryPage /></ProtectedRoute>} />
+      <Route path="/realtime" element={<ProtectedRoute><RealTimePage /></ProtectedRoute>} />
+      <Route path="/feedback" element={<ProtectedRoute><FeedbackPage /></ProtectedRoute>} />
+      <Route path="/notifications" element={<ProtectedRoute><NotificationsPage /></ProtectedRoute>} />
+      <Route path="/participation" element={<ProtectedRoute><ParticipationPage /></ProtectedRoute>} />
+      <Route path="/activity-admin" element={<AdminRoute><ActivityAdminPage /></AdminRoute>} />
 
       <Route path="*" element={<NotFoundPage />} />
     </Routes>

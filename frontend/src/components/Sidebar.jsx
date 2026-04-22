@@ -29,9 +29,18 @@ export default function Sidebar({ className = '' }) {
       <LinkItem to="/dashboard">Dashboard</LinkItem>
       <LinkItem to="/events">Events</LinkItem>
       <LinkItem to="/my-events">My Events</LinkItem>
+      <LinkItem to="/news">News</LinkItem>
+      <LinkItem to="/gallery">Gallery</LinkItem>
+      <LinkItem to="/realtime">Real Time</LinkItem>
+      <LinkItem to="/feedback">Feedback</LinkItem>
+      <LinkItem to="/notifications">Notifications</LinkItem>
+      <LinkItem to="/participation">Participation</LinkItem>
+      <LinkItem to="/profile">Profile</LinkItem>
+      <LinkItem to="/settings">Settings</LinkItem>
       {isAdmin && <LinkItem to="/events/create">Create Event</LinkItem>}
       {isAdmin && <LinkItem to="/registrations">Registrations</LinkItem>}
       {isAdmin && <LinkItem to="/users">User Management</LinkItem>}
+      {isAdmin && <LinkItem to="/activity-admin">Activity Admin</LinkItem>}
     </nav>
   )
 
